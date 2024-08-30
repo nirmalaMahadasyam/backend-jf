@@ -17,13 +17,13 @@ pipeline {
     //     account_id = "315069654700"
     // }
     stages {
-        stage('Test'){
-            steps{
-                sh """
-                echo "this is testing"
-                """
-            }
-        }
+        // stage('Test'){
+        //     steps{
+        //         sh """
+        //         echo "this is testing"
+        //         """
+        //     }
+        // }
         // stage('read the version'){
         //     steps{
         //         script{
@@ -33,15 +33,15 @@ pipeline {
         //         }
         //     }
         // }
-        // stage('Install Dependencies') {
-        //     steps {
-        //        sh """
-        //         npm install
-        //         ls -ltr
-        //         echo "application version: $appVersion"
-        //        """
-        //     }
-        // }
+        stage('Install Dependencies') {
+            steps {
+               sh """
+                npm install
+                ls -ltr
+                echo "application version: $appVersion"
+               """
+            }
+        }
         // stage('Build'){
         //     steps{
         //         sh """
