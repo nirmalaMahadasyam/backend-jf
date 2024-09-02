@@ -103,7 +103,7 @@ pipeline {
                         nexusUrl: "${nexusUrl}",
                         groupId: 'com.expense',
                         version: "${appVersion}",
-                        repository: "backend-jf",
+                        repository: "backend",
                         credentialsId: 'nexus-auth',
                         artifacts: [
                             [artifactId: "backend" ,
