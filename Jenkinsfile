@@ -38,7 +38,7 @@ pipeline {
                sh """
                 npm install
                 ls -ltr
-               
+               echo "application version:$appversion"
                """
             }
         }
@@ -100,7 +100,7 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        nexusUrl: "http://ec2-3-232-96-211.compute-1.amazonaws.com:8081/",
+                        nexusUrl: "http://3.232.96.211:8081/",
                         groupId: 'com.expense',
                         version: "${appVersion}",
                         repository: "backend",
