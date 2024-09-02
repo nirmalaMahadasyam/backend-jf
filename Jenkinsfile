@@ -12,7 +12,7 @@ pipeline {
     }
     environment{
         def appVersion = '' //variable declaration
-        // nexusUrl = 'http://3.232.96.211:8081/repository/nodejs/'
+        nexusUrl = 'http://3.232.96.211:8081'
          region = "us-east-1"
         account_id = "851725509871"
     }
@@ -100,7 +100,7 @@ pipeline {
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        nexusUrl: "http://3.232.96.211:8081/",
+                        nexusUrl: "${nexusUrl}",
                         groupId: 'com.expense',
                         version: "${appVersion}",
                         repository: "backend",
