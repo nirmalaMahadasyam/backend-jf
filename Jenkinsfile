@@ -12,9 +12,9 @@ pipeline {
     }
     environment{
         def appVersion = '' //variable declaration
-        //nexusUrl = 'nexus.daws78s.online:8081'
+        //nexusUrl = 'nexus.nirmaladevops.cloud:8081'
         //region = "us-east-1"
-        //account_id = "315069654700"
+        //account_id = "851725509871"
     }
     stages {
         // stage('Test'){
@@ -94,7 +94,7 @@ pipeline {
             }
         } */
 
-        /* stage('Nexus Artifact Upload'){
+       /* stage('Nexus Artifact Upload'){
             steps{
                 script{
                     nexusArtifactUploader(
@@ -114,7 +114,7 @@ pipeline {
                     )
                 }
             }
-        } */
+        } */ 
         /* stage('Deploy'){
             when{
                 expression{
