@@ -12,8 +12,8 @@ pipeline {
     }
     environment{
         def appVersion = '' //variable declaration
-       // nexusUrl = 'http://3.232.96.211:8081'
-        // region = "us-east-1"
+       //nexusUrl = 'http://44.203.27.73:8081/repository/backend/'
+       //region = "us-east-1"
         //account_id = "851725509871"
     }
     stages {
@@ -94,13 +94,13 @@ pipeline {
             }
         } */
 
-       /* stage('Nexus Artifact Upload'){
+        stage('Nexus Artifact Upload'){
             steps{
                 script{
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        nexusUrl: "${nexusUrl}",
+                        nexusUrl: "http://44.203.27.73:8081/repository/backend/",
                         groupId: 'com.expense',
                         version: "${appVersion}",
                         repository: "backend",
@@ -114,7 +114,7 @@ pipeline {
                     )
                 }
             }
-        } */
+        } 
         /* stage('Deploy'){
             when{
                 expression{
