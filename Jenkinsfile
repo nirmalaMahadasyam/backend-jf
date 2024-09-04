@@ -12,7 +12,8 @@ pipeline {
     }
     environment{
         def appVersion = '' //variable declaration
-       //nexusUrl = 'http://44.203.27.73:8081/repository/backend/'
+       //nexusUrl = 'http://44.203.27.73:8081/repository/backend/' /* not working*/
+       nexusUrl ='172.31.3.84:8081/'
        //region = "us-east-1"
         //account_id = "851725509871"
     }
@@ -93,14 +94,15 @@ pipeline {
               }
             }
         } */
-
+/* CI: this code is for nexus artifact upload(push the artifact or build into nexus repo by using jenkinsfile) */
         stage('Nexus Artifact Upload'){
             steps{
                 script{
                     nexusArtifactUploader(
                         nexusVersion: 'nexus3',
                         protocol: 'http',
-                        nexusUrl: "172.31.3.84:8081/",
+                        /*nexusUrl: "172.31.3.84:8081/",*/ /* nexus(EC2 instance- donot give publicip becoz every one can use same.so provide @privateip only.*/
+                        nexusUrl: "${nexusUrl}"
                         groupId: 'com.expense',
                         version: "${appVersion}",
                         repository: "backend",
@@ -115,7 +117,8 @@ pipeline {
                 }
             }
         } 
-        /* stage('Deploy'){
+        /* CD: after complete the CI(success) then do CD also.....CD:backend-deploy */
+        stage('Deploy'){
             when{
                 expression{
                     params.deploy
@@ -129,7 +132,7 @@ pipeline {
                     build job: 'backend-deploy', parameters: params, wait: false
                 }
             }
-        } */
+        } 
     }
     post { 
         always { 
