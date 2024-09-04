@@ -103,7 +103,8 @@ pipeline {
                         protocol: 'http',
                         /*nexusUrl: "172.31.3.84:8081/",*/ /* nexus(EC2 instance- donot give publicip becoz every one can use same.so provide @privateip only.*/
                         nexusUrl: "${nexusUrl}"
-                        groupId: 'com.expense',
+                        /*groupId: 'com.expense',*/
+                        groupId: "com.expense",
                         version: "${appVersion}",
                         repository: "backend",
                         credentialsId: 'nexus-auth',
